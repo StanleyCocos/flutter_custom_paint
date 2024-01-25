@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_custom_paint/go_canvas_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -55,6 +56,46 @@ class _MyHomePageState extends State<MyHomePage> {
               isComplex: true,
               willChange: false,
               // child: ,
+            ),
+          ),
+          SizedBox(height: 30),
+          GestureDetector(
+            onTap: (){
+              Navigator.push(context, MaterialPageRoute(builder: (_) => const GoCanvasPage()));
+            },
+            child: Container(
+              width: 200,
+              height: 40,
+              color: Colors.lightBlue,
+              alignment: Alignment.center,
+              child: Text("案例一(围棋)"),
+            ),
+          ),
+
+          SizedBox(height: 30),
+          GestureDetector(
+            onTap: (){
+
+            },
+            child: Container(
+              width: 200,
+              height: 40,
+              color: Colors.lightBlue,
+              alignment: Alignment.center,
+              child: Text("案例二(仪表盘"),
+            ),
+          ),
+          SizedBox(height: 30),
+          GestureDetector(
+            onTap: (){
+
+            },
+            child: Container(
+              width: 200,
+              height: 40,
+              color: Colors.lightBlue,
+              alignment: Alignment.center,
+              child: Text("案例二(柱状图)"),
             ),
           ),
         ],
@@ -120,7 +161,7 @@ class MyCustomPainter extends CustomPainter {
     // _drawLine(canvas, size);
     // _drawOval(canvas, size);
     // _drawPaint(canvas, size);
-    // _drawPath(canvas, size);
+    _drawPath(canvas, size);
   }
 
   @override
@@ -320,15 +361,15 @@ class MyCustomPainter extends CustomPainter {
 //     canvas.drawPath(path, p);
 
 
-    Path path = Path()..moveTo(size.width / 2, 200);
-    path.lineTo(size.width / 4, 500);
+    Path path = Path()..moveTo(size.width / 2, 0);
+    path.lineTo(size.width / 4, 200);
     path.lineTo(size.width / 7 * 6, 320);
-    path.lineTo(size.width / 7, 320);
-    path.lineTo(size.width / 4 * 3, 500);
-    path.close();
+    // path.lineTo(size.width / 7, 320);
+    // path.lineTo(size.width / 4 * 3, 500);
+    // path.close();
 // 默认值
-//     path.fillType = PathFillType.nonZero;
-    path.fillType = PathFillType.evenOdd;
+    path.fillType = PathFillType.nonZero;
+    // path.fillType = PathFillType.evenOdd;
     canvas.drawPath(path, p);
   }
 }
